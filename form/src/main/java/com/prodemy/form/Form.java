@@ -62,15 +62,8 @@ public class Form extends HttpServlet {
 			Statement stmt = conn.createStatement();
 			stmt.executeUpdate(sql);
 			
-			out.print("<html><body>");
-			out.print("<h1>Data Terkirim</h1>");
-			out.print("<h3>Nama : "+nama+"</h3>");
-			out.print("<h3>NIM : "+nim+"</h3>");
-			out.print("<h3>Alamat : "+alamat+"</h3>");
-			out.print("<h3>Tanggal Lahir : "+tanggalLahir+"</h3>");
-			out.print("<h3>Prodi : "+prodi+"</h3>");
-			out.print("<h3>Fakultas : "+fakultas+"</h3>");
-			out.print("</body></html>");
+			request.setAttribute("titipan1", nama);
+			request.getRequestDispatcher("view-biodata.jsp").forward(request, response);
 		}catch(SQLException e) {
 			e.printStackTrace();
 			
